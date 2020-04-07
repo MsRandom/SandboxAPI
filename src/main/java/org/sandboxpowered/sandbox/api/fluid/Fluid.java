@@ -13,7 +13,6 @@ import org.sandboxpowered.sandbox.api.state.Properties;
 import org.sandboxpowered.sandbox.api.state.StateFactory;
 import org.sandboxpowered.sandbox.api.util.Mono;
 import org.sandboxpowered.sandbox.api.util.math.Position;
-import org.sandboxpowered.sandbox.api.util.math.Vec3d;
 import org.sandboxpowered.sandbox.api.world.WorldReader;
 
 import java.util.Optional;

@@ -1,11 +1,8 @@
 package org.sandboxpowered.sandbox.api.util;
 
 import com.google.common.collect.Iterators;
-import org.joml.Vector2d;
-import org.joml.Vector3f;
 import org.joml.Vector3i;
 import org.joml.Vector3ic;
-import org.sandboxpowered.sandbox.api.util.math.Vec3i;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

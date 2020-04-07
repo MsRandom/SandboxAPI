@@ -20,8 +20,8 @@ public interface Position extends Vector3ic {
         return Functions.getInstance().createPosition(x, y, z);
     }
 
-    static Position create(Vec3i vec3i) {
-        return create(vec3i.getX(), vec3i.getY(), vec3i.getZ());
+    static Position create(Vector3ic vec3i) {
+        return create(vec3i.x(), vec3i.y(), vec3i.z());
     }
 
     static Stream<Position> getAllWithin(Position start, Position end) {

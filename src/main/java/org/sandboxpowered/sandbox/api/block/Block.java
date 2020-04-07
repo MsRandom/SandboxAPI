@@ -15,7 +15,6 @@ import org.sandboxpowered.sandbox.api.state.BlockState;
 import org.sandboxpowered.sandbox.api.state.StateFactory;
 import org.sandboxpowered.sandbox.api.util.*;
 import org.sandboxpowered.sandbox.api.util.math.Position;
-import org.sandboxpowered.sandbox.api.util.math.Vec3f;
 import org.sandboxpowered.sandbox.api.world.World;
 import org.sandboxpowered.sandbox.api.world.WorldReader;
 

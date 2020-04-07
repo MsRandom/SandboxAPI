@@ -16,7 +16,6 @@ import org.sandboxpowered.sandbox.api.server.Server;
 import org.sandboxpowered.sandbox.api.state.Property;
 import org.sandboxpowered.sandbox.api.util.annotation.Internal;
 import org.sandboxpowered.sandbox.api.util.math.Position;
-import org.sandboxpowered.sandbox.api.util.math.Vec3i;
 import org.sandboxpowered.sandbox.api.util.nbt.CompoundTag;
 import org.sandboxpowered.sandbox.api.util.nbt.ReadableCompoundTag;
 import org.sandboxpowered.sandbox.api.util.text.Text;
@@ -55,8 +54,6 @@ public interface Functions {
     Property getProperty(String property);
 
     Server serverInstance();
-
-    Vec3i createVec3i(int x, int y, int z);
 
     Position createPosition(int x, int y, int z);
 
