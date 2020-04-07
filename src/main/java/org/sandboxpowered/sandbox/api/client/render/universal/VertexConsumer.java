@@ -57,7 +57,7 @@ public interface VertexConsumer {
     void next();
 
     interface Provider {
-        VertexConsumer getVertexConsumer(Layer layer);
+        VertexConsumer getVertexConsumer(RenderLayer layer);
     }
 
     interface Builder extends VertexConsumer {
