@@ -1,6 +1,7 @@
 package org.sandboxpowered.sandbox.api.fluid;
 
 
+import org.joml.Vector3dc;
 import org.sandboxpowered.sandbox.api.component.Component;
 import org.sandboxpowered.sandbox.api.content.Content;
 import org.sandboxpowered.sandbox.api.item.Item;
@@ -56,7 +57,7 @@ public interface Fluid extends ItemProvider, Content<Fluid> {
         return 5;
     }
 
-    default Optional<Vec3d> getVelocity(WorldReader world, Position position, FluidState state) {
+    default Optional<Vector3dc> getVelocity(WorldReader world, Position position, FluidState state) {
         return Optional.empty();
     }
 

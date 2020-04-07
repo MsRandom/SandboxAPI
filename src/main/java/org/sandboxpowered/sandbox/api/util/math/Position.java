@@ -1,5 +1,6 @@
 package org.sandboxpowered.sandbox.api.util.math;
 
+import org.joml.Vector3ic;
 import org.sandboxpowered.sandbox.api.util.Direction;
 import org.sandboxpowered.sandbox.api.util.Functions;
 import org.sandboxpowered.sandbox.api.util.PositionIterator;
@@ -12,7 +13,7 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 @Immutable
-public interface Position extends Vec3i {
+public interface Position extends Vector3ic {
     Position ZERO = create(0, 0, 0);
 
     static Position create(int x, int y, int z) {
@@ -24,7 +25,7 @@ public interface Position extends Vec3i {
     }
 
     static Stream<Position> getAllWithin(Position start, Position end) {
-        return getAllWithin(start.getX(), start.getY(), start.getZ(), end.getX(), end.getY(), end.getZ());
+        return getAllWithin(start.x(), start.y(), start.z(), end.x(), end.y(), end.z());
     }
 
     static Stream<Position> getAllWithin(int x1, int y1, int z1, int x2, int y2, int z2) {
@@ -111,26 +112,26 @@ public interface Position extends Vec3i {
             return Functions.getInstance().createMutablePosition(x, y, z);
         }
 
-        static Mutable create(Vec3i vec3i) {
-            return create(vec3i.getX(), vec3i.getY(), vec3i.getZ());
+        static Mutable create(Vector3ic vec3i) {
+            return create(vec3i.x(), vec3i.y(), vec3i.z());
         }
 
         default Mutable setX(int x) {
-            return set(x, getY(), getZ());
+            return set(x, y(), z());
         }
 
         default Mutable setY(int y) {
-            return set(getX(), y, getZ());
+            return set(x(), y, z());
         }
 
         default Mutable setZ(int z) {
-            return set(getX(), getY(), z);
+            return set(x(), y(), z);
         }
 
         Mutable set(int x, int y, int z);
 
-        default Mutable set(Vec3i vec) {
-            return set(vec.getX(), vec.getY(), vec.getZ());
+        default Mutable set(Vector3ic vec) {
+            return set(vec.x(), vec.y(), vec.z());
         }
     }
 }

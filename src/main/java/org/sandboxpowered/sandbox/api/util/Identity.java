@@ -12,4 +12,12 @@ public interface Identity {
     String getNamespace();
 
     String getPath();
+
+    interface Variant extends Identity {
+        static Variant of(Identity identity, String variant) {
+            return Functions.getInstance().createVariantIdentity(identity, variant);
+        }
+
+        String getVariant();
+    }
 }

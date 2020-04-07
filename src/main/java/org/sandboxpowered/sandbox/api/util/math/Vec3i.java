@@ -4,6 +4,10 @@ import org.sandboxpowered.sandbox.api.util.Functions;
 
 import javax.annotation.concurrent.Immutable;
 
+/**
+ * Use @{@link org.joml.Vector3ic} instead
+ */
+@Deprecated
 @Immutable
 public interface Vec3i {
     static Vec3i create(int x, int y, int z) {

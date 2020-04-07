@@ -3,6 +3,7 @@ package org.sandboxpowered.sandbox.api.util;
 import org.sandboxpowered.sandbox.api.block.Block;
 import org.sandboxpowered.sandbox.api.block.Material;
 import org.sandboxpowered.sandbox.api.block.entity.BlockEntity;
+import org.sandboxpowered.sandbox.api.client.Client;
 import org.sandboxpowered.sandbox.api.component.Component;
 import org.sandboxpowered.sandbox.api.content.Content;
 import org.sandboxpowered.sandbox.api.entity.Entity;
@@ -68,4 +69,8 @@ public interface Functions {
     FluidStack fluidStackFunction(Fluid fluid, int amount);
 
     FluidStack fluidStackFromTagFunction(ReadableCompoundTag tag);
+
+    Client clientInstance();
+
+    Identity.Variant createVariantIdentity(Identity identity, String variant);
 }

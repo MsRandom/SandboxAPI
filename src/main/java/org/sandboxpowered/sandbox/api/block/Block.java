@@ -1,5 +1,6 @@
 package org.sandboxpowered.sandbox.api.block;
 
+import org.joml.Vector3fc;
 import org.sandboxpowered.sandbox.api.block.entity.BlockEntity;
 import org.sandboxpowered.sandbox.api.component.Component;
 import org.sandboxpowered.sandbox.api.content.Content;
@@ -53,7 +54,7 @@ public interface Block extends ItemProvider, Content<Block> {
      *
      * @return The {@link InteractionResult} of the interaction
      */
-    default InteractionResult onBlockUsed(World world, Position pos, BlockState state, PlayerEntity player, Hand hand, Direction side, Vec3f hit) {
+    default InteractionResult onBlockUsed(World world, Position pos, BlockState state, PlayerEntity player, Hand hand, Direction side, Vector3fc hit) {
         return InteractionResult.IGNORE;
     }
 

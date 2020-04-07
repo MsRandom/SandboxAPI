@@ -1,6 +1,10 @@
 package org.sandboxpowered.sandbox.api.util;
 
 import com.google.common.collect.Iterators;
+import org.joml.Vector2d;
+import org.joml.Vector3f;
+import org.joml.Vector3i;
+import org.joml.Vector3ic;
 import org.sandboxpowered.sandbox.api.util.math.Vec3i;
 
 import javax.annotation.Nonnull;
@@ -10,12 +14,12 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public enum Direction {
-    DOWN(0, 1, -1, "down", Direction.AxisDirection.NEGATIVE, Direction.Axis.Y, Vec3i.create(0, -1, 0)),
-    UP(1, 0, -1, "up", Direction.AxisDirection.POSITIVE, Direction.Axis.Y, Vec3i.create(0, 1, 0)),
-    NORTH(2, 3, 2, "north", Direction.AxisDirection.NEGATIVE, Direction.Axis.Z, Vec3i.create(0, 0, -1)),
-    SOUTH(3, 2, 0, "south", Direction.AxisDirection.POSITIVE, Direction.Axis.Z, Vec3i.create(0, 0, 1)),
-    WEST(4, 5, 1, "west", Direction.AxisDirection.NEGATIVE, Direction.Axis.X, Vec3i.create(-1, 0, 0)),
-    EAST(5, 4, 3, "east", Direction.AxisDirection.POSITIVE, Direction.Axis.X, Vec3i.create(1, 0, 0));
+    DOWN(0, 1, -1, "down", Direction.AxisDirection.NEGATIVE, Direction.Axis.Y, new Vector3i(0, -1, 0)),
+    UP(1, 0, -1, "up", Direction.AxisDirection.POSITIVE, Direction.Axis.Y, new Vector3i(0, 1, 0)),
+    NORTH(2, 3, 2, "north", Direction.AxisDirection.NEGATIVE, Direction.Axis.Z, new Vector3i(0, 0, -1)),
+    SOUTH(3, 2, 0, "south", Direction.AxisDirection.POSITIVE, Direction.Axis.Z, new Vector3i(0, 0, 1)),
+    WEST(4, 5, 1, "west", Direction.AxisDirection.NEGATIVE, Direction.Axis.X, new Vector3i(-1, 0, 0)),
+    EAST(5, 4, 3, "east", Direction.AxisDirection.POSITIVE, Direction.Axis.X, new Vector3i(1, 0, 0));
     private static final Direction[] ALL = values();
     private static final Map<String, Direction> NAME_MAP = Arrays.stream(ALL).collect(Collectors.toMap(Direction::getName, (dir) -> dir));
     private static final Direction[] ID_TO_DIRECTION = Arrays.stream(ALL).sorted(Comparator.comparingInt((direction_1) -> direction_1.id)).toArray(Direction[]::new);
@@ -26,9 +30,9 @@ public enum Direction {
     private final String name;
     private final Direction.Axis axis;
     private final Direction.AxisDirection direction;
-    private final Vec3i vector;
+    private final Vector3i vector;
 
-    Direction(int id, int horizontalId, int invertedId, String name, Direction.AxisDirection direction, Direction.Axis axis, Vec3i vector) {
+    Direction(int id, int horizontalId, int invertedId, String name, Direction.AxisDirection direction, Direction.Axis axis, Vector3i vector) {
         this.id = id;
         this.horizontalId = horizontalId;
         this.invertedId = invertedId;
@@ -76,7 +80,7 @@ public enum Direction {
         float val = Float.MIN_VALUE;
 
         for (Direction dir : ALL) {
-            float float_5 = x * (float) dir.vector.getX() + y * (float) dir.vector.getY() + z * (float) dir.vector.getZ();
+            float float_5 = x * (float) dir.vector.x() + y * (float) dir.vector.y() + z * (float) dir.vector.z();
             if (float_5 > val) {
                 val = float_5;
                 outDir = dir;
@@ -229,7 +233,7 @@ public enum Direction {
         return this.name;
     }
 
-    public Vec3i getVector() {
+    public Vector3ic getVector() {
         return this.vector;
     }
 

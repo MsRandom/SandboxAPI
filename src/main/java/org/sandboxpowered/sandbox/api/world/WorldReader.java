@@ -16,11 +16,11 @@ public interface WorldReader {
     FluidState getFluidState(Position position);
 
     default boolean isValid(Position position) {
-        return isHeightValid(position) && position.getX() >= -30000000 && position.getZ() >= -30000000 && position.getX() < 30000000 && position.getZ() < 30000000;
+        return isHeightValid(position) && position.x() >= -30000000 && position.z() >= -30000000 && position.x() < 30000000 && position.z() < 30000000;
     }
 
     default boolean isHeightValid(Position position) {
-        return isHeightValid(position.getY());
+        return isHeightValid(position.y());
     }
 
     default boolean isHeightValid(int height) {
