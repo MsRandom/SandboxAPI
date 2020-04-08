@@ -1,6 +1,6 @@
-package org.sandboxpowered.api.client.rendering;
+package org.sandboxpowered.api.client.rendering.manager;
 
-import org.sandboxpowered.api.client.rendering.model.BakedModel;
+import org.sandboxpowered.api.client.rendering.model.Model;
 import org.sandboxpowered.api.util.Identity;
 
 public interface ModelManager {
@@ -11,5 +11,5 @@ public interface ModelManager {
      */
     void register(Identity.Variant model);
 
-    BakedModel getModel(Identity.Variant model);
+    Model getModel(Identity.Variant model);
 }

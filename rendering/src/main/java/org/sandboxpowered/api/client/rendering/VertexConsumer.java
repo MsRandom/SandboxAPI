@@ -1,12 +1,12 @@
 package org.sandboxpowered.api.client.rendering;
 
 import org.joml.*;
-import org.sandboxpowered.api.client.rendering.model.BakedModel;
+import org.sandboxpowered.api.client.rendering.model.Model;
 import org.sandboxpowered.api.util.math.MatrixStack;
 
 public interface VertexConsumer {
 
-    void quad(MatrixStack.Matrices matrices, BakedModel.Quad quad, Vector3fc colour, int light, int overlay);
+    void quad(MatrixStack.Matrices matrices, Model.Quad quad, Vector3fc colour, int light, int overlay);
 
     void vertex(Vector3fc position, Vector4fc colour, Vector2fc texture, int overlay, int light, Vector3fc normal);
 

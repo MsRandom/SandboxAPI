@@ -4,7 +4,7 @@ import org.sandboxpowered.api.util.Direction;
 
 import java.util.Collection;
 
-public interface BakedModel {
+public interface Model {
 
     Collection<Quad> getQuads(Direction direction);
 
