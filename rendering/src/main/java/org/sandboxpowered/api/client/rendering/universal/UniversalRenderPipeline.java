@@ -7,4 +7,8 @@ public interface UniversalRenderPipeline extends RenderPipeline {
         return true;
     }
 
+    static UniversalRenderPipeline getInstance() {
+        return null;
+    }
+
 }
