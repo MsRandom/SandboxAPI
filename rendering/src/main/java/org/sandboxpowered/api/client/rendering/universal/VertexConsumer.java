@@ -1,7 +1,7 @@
 package org.sandboxpowered.api.client.rendering.universal;
 
 import org.joml.*;
-import org.sandboxpowered.api.client.render.universal.model.BakedModel;
+import org.sandboxpowered.api.client.rendering.universal.model.BakedModel;
 import org.sandboxpowered.api.util.math.MatrixStack;
 
 public interface VertexConsumer {

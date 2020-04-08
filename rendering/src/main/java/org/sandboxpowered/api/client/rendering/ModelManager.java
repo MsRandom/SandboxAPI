@@ -1,6 +1,6 @@
 package org.sandboxpowered.api.client.rendering;
 
-import org.sandboxpowered.api.client.render.universal.model.BakedModel;
+import org.sandboxpowered.api.client.rendering.universal.model.BakedModel;
 import org.sandboxpowered.api.util.Identity;
 
 public interface ModelManager {
