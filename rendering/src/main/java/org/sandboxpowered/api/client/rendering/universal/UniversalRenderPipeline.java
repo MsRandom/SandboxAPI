@@ -4,11 +4,10 @@ import org.sandboxpowered.api.client.rendering.RenderPipeline;
 
 public interface UniversalRenderPipeline extends RenderPipeline {
     static boolean isSupported() {
-        return true;
+        return false;
     }
 
-    static UniversalRenderPipeline getInstance() {
-        return null;
+    static UniversalRenderPipeline getInstance() throws UnsupportedRenderPipelineException {
+        throw new UnsupportedRenderPipelineException();
     }
-
 }

@@ -6,4 +6,8 @@ public interface VulkanRenderPipeline extends RenderPipeline {
     static boolean isSupported() {
         return false;
     }
+
+    static VulkanRenderPipeline getInstance() throws UnsupportedRenderPipelineException {
+        throw new UnsupportedRenderPipelineException();
+    }
 }

@@ -12,4 +12,8 @@ public interface RenderPipeline {
 
     ShaderManager getShaderManager();
 
+    class UnsupportedRenderPipelineException extends RuntimeException {
+
+    }
+
 }

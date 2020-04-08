@@ -6,4 +6,8 @@ public interface OpenGLRenderPipeline extends RenderPipeline {
     static boolean isSupported() {
         return false;
     }
+
+    static OpenGLRenderPipeline getInstance() throws UnsupportedRenderPipelineException {
+        throw new UnsupportedRenderPipelineException();
+    }
 }
