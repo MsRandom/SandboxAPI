@@ -1,4 +1,4 @@
-package org.sandboxpowered.api.client.rendering.universal.model;
+package org.sandboxpowered.api.client.rendering.model;
 
 import org.sandboxpowered.api.util.Direction;
 

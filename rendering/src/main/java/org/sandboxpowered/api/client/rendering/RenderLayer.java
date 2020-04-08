@@ -1,4 +1,4 @@
-package org.sandboxpowered.api.client.rendering.universal;
+package org.sandboxpowered.api.client.rendering;
 
 import org.sandboxpowered.api.util.Identity;
 

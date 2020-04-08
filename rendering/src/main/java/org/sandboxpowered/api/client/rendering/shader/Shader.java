@@ -1,4 +1,4 @@
-package org.sandboxpowered.api.client.rendering.universal.shader;
+package org.sandboxpowered.api.client.rendering.shader;
 
 import org.joml.Matrix4fc;
 import org.joml.Vector2fc;

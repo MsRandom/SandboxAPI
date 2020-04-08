@@ -1,6 +1,4 @@
-package org.sandboxpowered.api.client.rendering.universal;
-
-import org.sandboxpowered.api.client.rendering.RenderPipeline;
+package org.sandboxpowered.api.client.rendering;
 
 public interface UniversalRenderPipeline extends RenderPipeline {
     static boolean isSupported() {

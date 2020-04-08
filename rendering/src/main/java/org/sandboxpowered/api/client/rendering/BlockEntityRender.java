@@ -1,4 +1,4 @@
-package org.sandboxpowered.api.client.rendering.universal;
+package org.sandboxpowered.api.client.rendering;
 
 import org.sandboxpowered.api.block.entity.BlockEntity;
 import org.sandboxpowered.api.util.math.MatrixStack;
