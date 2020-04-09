@@ -74,6 +74,7 @@ dependencies {
         api project(":rendering-vulkan")
 
         api project(":input")
+        api project(":input-legacy")
     }
 }
 
