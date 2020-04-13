@@ -1,18 +1,8 @@
 package org.sandboxpowered.api.events.args;
 
 import org.sandboxpowered.api.entity.Entity;
-import org.sandboxpowered.eventhandler.CancellableEventArgs;
+import org.sandboxpowered.eventhandler.priority.Cancellable;
 
-public class EntityArgs<T extends Entity> extends CancellableEventArgs {
-    private T entity;
-
-    public T getEntity() {
-        return entity;
-    }
-
-    public final EntityArgs<T> setup(T entity) {
-        reset();
-        this.entity = entity;
-        return this;
-    }
+public interface EntityArgs<T extends Entity> extends Cancellable {
+    T getEntity();
 }

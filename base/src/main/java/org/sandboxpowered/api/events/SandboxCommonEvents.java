@@ -5,8 +5,10 @@ import org.sandboxpowered.api.entity.LivingEntity;
 import org.sandboxpowered.api.entity.player.PlayerEntity;
 import org.sandboxpowered.api.events.args.*;
 import org.sandboxpowered.api.world.World;
-import org.sandboxpowered.eventhandler.*;
-import org.sandboxpowered.eventhandler.core.*;
+import org.sandboxpowered.eventhandler.EventHandler;
+import org.sandboxpowered.eventhandler.PriorityEventHandler;
+import org.sandboxpowered.eventhandler.core.EventArgs;
+import org.sandboxpowered.eventhandler.core.EventHandlerBase;
 import org.sandboxpowered.eventhandler.priority.Cancellable;
 import org.sandboxpowered.eventhandler.priority.PriorityHandler;
 
