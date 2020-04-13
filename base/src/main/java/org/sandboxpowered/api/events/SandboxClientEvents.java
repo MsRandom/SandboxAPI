@@ -7,7 +7,7 @@ import org.sandboxpowered.eventhandler.PriorityEventHandler;
 import org.sandboxpowered.eventhandler.priority.Cancellable;
 import org.sandboxpowered.eventhandler.priority.PriorityHandler;
 
-public class SandboxClientEvents {
+public final class SandboxClientEvents {
     public static final PriorityHandler<Entity, Cancellable> ENTITY_RENDER = new PriorityEventHandler<>();
     public static final PriorityHandler<World, BlockArgs> BLOCK_HIGHLIGHT = new PriorityEventHandler<>();
 }

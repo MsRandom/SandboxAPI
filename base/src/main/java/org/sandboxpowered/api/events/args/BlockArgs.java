@@ -8,5 +8,7 @@ import org.sandboxpowered.eventhandler.priority.Cancellable;
 public interface BlockArgs extends Cancellable {
     Position getPosition();
     BlockState getState();
-    Block getBlock();
+    default Block getBlock() {
+        return getState().getBlock();
+    }
 }
