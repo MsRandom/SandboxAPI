@@ -5,12 +5,10 @@ import org.sandboxpowered.api.entity.LivingEntity;
 import org.sandboxpowered.api.entity.player.PlayerEntity;
 import org.sandboxpowered.api.events.args.*;
 import org.sandboxpowered.api.world.World;
-import org.sandboxpowered.eventhandler.EventHandler;
-import org.sandboxpowered.eventhandler.PriorityEventHandler;
-import org.sandboxpowered.eventhandler.core.Cancellable;
-import org.sandboxpowered.eventhandler.core.EventArgs;
-import org.sandboxpowered.eventhandler.core.EventHandlerBase;
-import org.sandboxpowered.eventhandler.core.PriorityHandler;
+import org.sandboxpowered.eventhandler.*;
+import org.sandboxpowered.eventhandler.core.*;
+import org.sandboxpowered.eventhandler.priority.Cancellable;
+import org.sandboxpowered.eventhandler.priority.PriorityHandler;
 
 public final class SandboxCommonEvents {
     public static final PriorityHandler<PlayerEntity, BlockArgs> BLOCK_BREAK = new PriorityEventHandler<>();
@@ -32,7 +30,8 @@ public final class SandboxCommonEvents {
     public static final PriorityHandler<PlayerEntity, BlockArgs> PLAYER_SLEEP = new PriorityEventHandler<>();
     public static final PriorityHandler<PlayerEntity, BlockArgs> PLAYER_WAKE_UP = new PriorityEventHandler<>();
     //public static final PriorityHandler<Entity, CancellableEventArgs> UPDATE_SIZE = new PriorityEventHandler<>();
-    public static final PriorityHandler<Entity, ChatArgs> CHAT_MESSAGE = new PriorityEventHandler<>();
+    public static final EventHandlerBase<Entity, ChatArgs> CHAT_MESSAGE = new EventHandler<>();
     public static final EventHandlerBase<Entity, EventArgs> ENTITY_CONSTRUCT = new EventHandler<>();
+    public static final EventHandlerBase<?, Cancellable> REGISTER_OBJECT = new EventHandler<>();
     public static final EventHandlerBase<PlayerEntity, EntityArgs<PlayerEntity>> PLAYER_CLONE = new EventHandler<>();
 }

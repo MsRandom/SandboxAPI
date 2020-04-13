@@ -6,13 +6,8 @@ import org.sandboxpowered.api.util.math.Position;
 import org.sandboxpowered.eventhandler.CancellableEventArgs;
 
 public class BlockArgs extends CancellableEventArgs {
-    private final Position pos;
-    private final BlockState state;
-
-    public BlockArgs(Position pos, BlockState state) {
-        this.pos = pos;
-        this.state = state;
-    }
+    private Position pos;
+    private BlockState state;
 
     public Position getPos() {
         return pos;
@@ -24,5 +19,12 @@ public class BlockArgs extends CancellableEventArgs {
 
     public Block getBlock() {
         return state.getBlock();
+    }
+
+    public final BlockArgs setup(Position pos, BlockState state) {
+        reset();
+        this.pos = pos;
+        this.state = state;
+        return this;
     }
 }

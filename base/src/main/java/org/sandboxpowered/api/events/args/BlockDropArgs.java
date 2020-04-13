@@ -7,15 +7,16 @@ import org.sandboxpowered.api.util.math.Position;
 import java.util.List;
 
 public class BlockDropArgs extends BlockArgs implements DropsArgs {
-    private final List<ItemStack> items;
-
-    public BlockDropArgs(Position pos, BlockState state, List<ItemStack> items) {
-        super(pos, state);
-        this.items = items;
-    }
+    private List<ItemStack> items;
 
     @Override
     public List<ItemStack> getItems() {
         return items;
+    }
+
+    public final BlockDropArgs setup(Position pos, BlockState state, List<ItemStack> items) {
+        setup(pos, state);
+        this.items = items;
+        return this;
     }
 }

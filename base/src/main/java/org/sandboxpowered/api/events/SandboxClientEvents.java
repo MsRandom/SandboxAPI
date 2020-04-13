@@ -4,8 +4,8 @@ import org.sandboxpowered.api.entity.Entity;
 import org.sandboxpowered.api.events.args.BlockArgs;
 import org.sandboxpowered.api.world.World;
 import org.sandboxpowered.eventhandler.PriorityEventHandler;
-import org.sandboxpowered.eventhandler.core.Cancellable;
-import org.sandboxpowered.eventhandler.core.PriorityHandler;
+import org.sandboxpowered.eventhandler.priority.Cancellable;
+import org.sandboxpowered.eventhandler.priority.PriorityHandler;
 
 public class SandboxClientEvents {
     public static final PriorityHandler<Entity, Cancellable> ENTITY_RENDER = new PriorityEventHandler<>();
