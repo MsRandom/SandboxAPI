@@ -5,10 +5,13 @@ module sandbox.base {
     requires static org.jetbrains.annotations;
     requires java.semver;
     requires guava;
+    requires eventhandler;
 
     uses org.sandboxpowered.internal.Functions;
 
     exports org.sandboxpowered.api;
+    exports org.sandboxpowered.api.events;
+    exports org.sandboxpowered.api.events.args;
     exports org.sandboxpowered.api.addon;
     exports org.sandboxpowered.api.block;
     exports org.sandboxpowered.api.block.entity;
