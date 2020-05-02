@@ -1,5 +1,6 @@
 package org.sandboxpowered.api.block;
 
+import org.jetbrains.annotations.Nullable;
 import org.sandboxpowered.api.block.entity.BlockEntity;
 import org.sandboxpowered.api.component.Component;
 import org.sandboxpowered.api.content.Content;
@@ -18,8 +19,8 @@ import org.sandboxpowered.api.util.math.Vec3f;
 import org.sandboxpowered.api.world.World;
 import org.sandboxpowered.api.world.WorldReader;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
+import java.util.Random;
 
 public interface Block extends ItemProvider, Content<Block> {
     Registry<Block> REGISTRY = Registry.getRegistryFromType(Block.class);
@@ -91,6 +92,9 @@ public interface Block extends ItemProvider, Content<Block> {
         return state;
     }
 
+    default void randomTick(BlockState blockState, World serverWorld, Position position, Random random) {
+    }
+
     /**
      * Whether the block has a @{@link BlockEntity} attached to it
      */
@@ -117,7 +121,7 @@ public interface Block extends ItemProvider, Content<Block> {
     }
 
     default boolean canReplace(BlockState state) {
-        return getMaterial().isReplaceable();
+        return getMaterial(state).isReplaceable();
     }
 
     default boolean isAir(BlockState state) {
@@ -128,28 +132,54 @@ public interface Block extends ItemProvider, Content<Block> {
 
     }
 
-    default boolean canEntitySpawnWithin() {
-        return !getMaterial().isSolid() && !getMaterial().isLiquid();
+    default boolean canEntitySpawnWithin(BlockState state) {
+        return !getMaterial(state).isSolid() && !getMaterial(state).isLiquid();
     }
 
     default Material.PistonInteraction getPistonInteraction(BlockState state) {
-        return getMaterial().getPistonInteraction();
+        return getMaterial(state).getPistonInteraction();
     }
 
-    default Material getMaterial() {
+    default Material getMaterial(BlockState state) {
         return getSettings().getMaterial();
+    }
+
+    default float getHardness(BlockState state) {
+        return getSettings().getHardness();
+    }
+
+    default float getResistance(BlockState state) {
+        return getSettings().getResistance();
+    }
+
+    default float getSlipperiness(BlockState state) {
+        return getSettings().getSlipperiness();
+    }
+
+    default float getVelocity(BlockState state) {
+        return getSettings().getVelocity();
+    }
+
+    default float getJumpVelocity(BlockState state) {
+        return getSettings().getJumpVelocity();
+    }
+
+    default int getLumincance(BlockState state) {
+        return getSettings().getLuminance();
     }
 
     default ItemStack getPickStack(WorldReader reader, Position position, BlockState state) {
         return ItemStack.of(this);
     }
 
+    //TODO: mining tool/level, map color, collision, opacity, sound group, random tick, drops, dynamic bounds
     class Settings {
         private final Material material;
         private final float hardness, resistance, slipperiness, velocity, jumpVelocity;
         private final int luminance;
+        private final boolean randomTicks;
 
-        private Settings(Material material, float hardness, float resistance, float slipperiness, float velocity, float jumpVelocity, int luminance) {
+        private Settings(Material material, float hardness, float resistance, float slipperiness, float velocity, float jumpVelocity, int luminance, boolean randomTicks) {
             this.material = material;
             this.hardness = hardness;
             this.resistance = resistance;
@@ -157,10 +187,33 @@ public interface Block extends ItemProvider, Content<Block> {
             this.velocity = velocity;
             this.jumpVelocity = jumpVelocity;
             this.luminance = luminance;
+            this.randomTicks = randomTicks;
+        }
+
+        public boolean isRandomTicks() {
+            return randomTicks;
         }
 
         public static Builder builder(Material material) {
             return new Builder(material);
+        }
+
+        public static Builder builder(Registry.Entry<Block> block) {
+            return builder(block.get());
+        }
+
+        public static Builder builder(Block block) {
+            return builder(block.getSettings());
+        }
+
+        public static Builder builder(Settings settings) {
+            return new Builder(settings.material)
+                    .setHardness(settings.hardness)
+                    .setResistance(settings.resistance)
+                    .setSlipperiness(settings.slipperiness)
+                    .setVelocity(settings.velocity)
+                    .setJumpVelocity(settings.jumpVelocity)
+                    .setLuminance(settings.luminance);
         }
 
         public Material getMaterial() {
@@ -195,6 +248,7 @@ public interface Block extends ItemProvider, Content<Block> {
             private final Material material;
             private float hardness, resistance, slipperiness, velocity, jumpVelocity;
             private int luminance, opacity;
+            private boolean randomTicks;
 
             private Builder(Material material) {
                 this.material = material;
@@ -229,9 +283,13 @@ public interface Block extends ItemProvider, Content<Block> {
                 this.luminance = luminance;
                 return this;
             }
+            public Builder ticksRandomly() {
+                this.randomTicks=true;
+                return this;
+            }
 
             public Settings build() {
-                return new Settings(material, hardness, resistance, slipperiness, velocity, jumpVelocity, luminance);
+                return new Settings(material, hardness, resistance, slipperiness, velocity, jumpVelocity, luminance, randomTicks);
             }
         }
     }

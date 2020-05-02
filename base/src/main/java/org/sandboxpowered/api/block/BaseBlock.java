@@ -1,27 +1,28 @@
 package org.sandboxpowered.api.block;
 
+import org.jetbrains.annotations.Nullable;
 import org.sandboxpowered.api.block.entity.BlockEntity;
+import org.sandboxpowered.api.component.Component;
 import org.sandboxpowered.api.component.Components;
 import org.sandboxpowered.api.component.fluid.FluidLoggingContainer;
+import org.sandboxpowered.api.item.Item;
+import org.sandboxpowered.api.registry.Registry;
 import org.sandboxpowered.api.state.BlockState;
 import org.sandboxpowered.api.state.Properties;
 import org.sandboxpowered.api.state.StateFactory;
-import org.sandboxpowered.api.world.WorldReader;
-import org.sandboxpowered.api.component.Component;
-import org.sandboxpowered.api.item.Item;
-import org.sandboxpowered.api.registry.Registry;
 import org.sandboxpowered.api.util.Direction;
 import org.sandboxpowered.api.util.Mono;
 import org.sandboxpowered.api.util.annotation.Internal;
 import org.sandboxpowered.api.util.math.Position;
+import org.sandboxpowered.api.world.WorldReader;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class BaseBlock implements Block {
     private final Settings settings;
     private Registry.Entry<Item> itemCache;
     private StateFactory<Block, BlockState> stateFactory;
+    private BlockState baseState;
 
     public BaseBlock(Settings settings) {
         this.settings = settings;
@@ -40,6 +41,11 @@ public class BaseBlock implements Block {
     @Internal
     public final void setStateFactory(StateFactory<Block, BlockState> stateFactory) {
         this.stateFactory = stateFactory;
+        this.baseState= createBaseState(stateFactory.getBaseState());
+    }
+
+    protected BlockState createBaseState(BlockState baseState) {
+        return baseState;
     }
 
     @Override
@@ -75,6 +81,6 @@ public class BaseBlock implements Block {
 
     @Override
     public final BlockState getBaseState() {
-        return stateFactory.getBaseState();
+        return baseState;
     }
 }
