@@ -1,3 +1,3 @@
-package org.sandboxpowered.api.events.args;
+package org.sandboxpowered.api.events;
 
 public interface BlockDropArgs extends BlockArgs, DropsArgs {}

@@ -1,4 +1,4 @@
-package org.sandboxpowered.api.events.args;
+package org.sandboxpowered.api.events;
 
 import org.sandboxpowered.api.entity.Entity;
 import org.sandboxpowered.eventhandler.priority.Cancellable;

@@ -1,4 +1,4 @@
-package org.sandboxpowered.api.events.args;
+package org.sandboxpowered.api.events;
 
 import org.sandboxpowered.api.block.Block;
 import org.sandboxpowered.api.state.BlockState;
