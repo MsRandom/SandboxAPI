@@ -1,10 +1,7 @@
 package org.sandboxpowered.api.registry;
 
 import org.sandboxpowered.api.content.Content;
-import org.sandboxpowered.api.events.args.ObjectRegistryArgs;
 import org.sandboxpowered.api.util.Identity;
-import org.sandboxpowered.eventhandler.EventHandler;
-import org.sandboxpowered.eventhandler.core.EventHandlerBase;
 import org.sandboxpowered.internal.Functions;
 
 import java.util.Collection;
@@ -15,8 +12,6 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public interface Registry<T extends Content> {
-    EventHandlerBase<Registry<?>, ObjectRegistryArgs> REGISTER_CONTENT_EVENT = new EventHandler<>();
-
     static <T extends Content<T>> Registry<T> getRegistryFromType(Class<T> tClass) {
         return Functions.getInstance().registryFunction(tClass);
     }
