@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public interface Registry<T extends Content> {
-    EventHandlerBase<Registry<?>, ObjectRegistryArgs> REGISTER_OBJECT_EVENT = new EventHandler<>();
+    EventHandlerBase<Registry<?>, ObjectRegistryArgs> REGISTER_CONTENT_EVENT = new EventHandler<>();
 
     static <T extends Content<T>> Registry<T> getRegistryFromType(Class<T> tClass) {
         return Functions.getInstance().registryFunction(tClass);
