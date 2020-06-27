@@ -1,7 +1,7 @@
 package org.sandboxpowered.api.registry;
 
 import org.sandboxpowered.api.content.Content;
-import org.sandboxpowered.api.events.ObjectRegistryArgs;
+import org.sandboxpowered.api.events.args.ObjectRegistryArgs;
 import org.sandboxpowered.api.util.Identity;
 import org.sandboxpowered.eventhandler.EventHandler;
 import org.sandboxpowered.eventhandler.core.EventHandlerBase;

@@ -7,7 +7,7 @@ import org.sandboxpowered.api.content.Content;
 import org.sandboxpowered.api.entity.Entity;
 import org.sandboxpowered.api.entity.player.Hand;
 import org.sandboxpowered.api.entity.player.PlayerEntity;
-import org.sandboxpowered.api.events.BlockArgs;
+import org.sandboxpowered.api.events.args.BlockArgs;
 import org.sandboxpowered.api.item.Item;
 import org.sandboxpowered.api.item.ItemProvider;
 import org.sandboxpowered.api.item.ItemStack;
@@ -26,10 +26,6 @@ import java.util.Optional;
 import java.util.Random;
 
 public interface Block extends ItemProvider, Content<Block> {
-    PriorityHandler<PlayerEntity, BlockArgs> BREAK_EVENT = new PriorityEventHandler<>();
-
-    PriorityHandler<World, BlockArgs> HIGHLIGHT_EVENT = new PriorityEventHandler<>();
-
     Registry<Block> REGISTRY = Registry.getRegistryFromType(Block.class);
 
     @Override
