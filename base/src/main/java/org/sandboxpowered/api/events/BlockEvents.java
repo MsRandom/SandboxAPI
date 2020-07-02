@@ -7,8 +7,8 @@ import org.sandboxpowered.eventhandler.PriorityEventHandler;
 import org.sandboxpowered.eventhandler.priority.PriorityHandler;
 
 public class BlockEvents {
-    public static final PriorityHandler<PlayerEntity, BlockArgs> BREAK_EVENT = new PriorityEventHandler<>();
+    public static final PriorityHandler<PlayerEntity, BlockArgs> BREAK = new PriorityEventHandler<>();
 
     //Render highlight, might need more info in the args than the standard block info
-    public static final PriorityHandler<World, BlockArgs> HIGHLIGHT_EVENT = new PriorityEventHandler<>();
+    public static final PriorityHandler<World, BlockArgs> HIGHLIGHT = new PriorityEventHandler<>();
 }
